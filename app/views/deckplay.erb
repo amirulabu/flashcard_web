@@ -1,12 +1,18 @@
 <div class="container">
   <h1>Flash Card Game!</h1>
   <p>login? <%= session[:logindata] %></p>
+  <p><a href="/">Home</a> | <a href="/play">Select Deck</a> | <a href="/result">Result</a></p>
+
+
+  <br /><br />
   <% x = Card.where(deck_id:@thedeck.to_s).find(@thecard)  %>
-  <p><%= x.question %></p>
+  <p>In English: <%= x.question %></p>
   <form action="/play/deck/<%= @thedeck %>/<%= @thecard %>/check" method="POST">
-  Answer:<br>
+  In Malay:
   <input type="text" name="answer">
   <input type="submit" value="submit">
-  <%= @correct %>
   </form>
+
+  <p><a href="/play/deck/<%= @thedeck %>/<%= @thenextcard %>"> Next >></a></p>
+
 </div>

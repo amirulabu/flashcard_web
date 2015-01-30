@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Results</h1>
+  <p>login? <%= session[:logindata] %></p>
+  <p><a href="/">Home</a> | <a href="/play">Play</a></p>
+  <p></p>
+
+  <table style="width:100%">
+    <tr>
+      <th>id</th>
+      <th>deck id</th>
+      <th>user id</th>
+    </tr>
+    <% Round.where(user_id: session[:loginid].to_s).each do |x| %>
+    <tr>
+      <td><%= x.id %></td>
+      <td><%= x.deck_id %></td>
+      <td><%= x.user_id %></td>
+    </tr>
+    <% end %>
+  </table>
+
+
+
+
+
+
+</div>

@@ -4,6 +4,5 @@ class CreateDecks < ActiveRecord::Migration
       t.string :name
 
     end
-
   end
 end

@@ -1,0 +1,10 @@
+shadow	bayang
+short	pendek
+sick	pesakit
+sick	sakit
+silicon	silikon
+silver	argentum
+sleep	tidur
+hatred	benci
+hay	rumput kering
+health	kesihatan

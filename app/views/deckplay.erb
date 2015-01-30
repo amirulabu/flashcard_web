@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Flash Card Game!</h1>
+  <p>login? <%= session[:logindata] %></p>
+  <% x = Card.where(deck_id:1).find(@thecard)  %>
+  <p><%= x.question %></p>
+  <% #end %>
+  <form action="/play/deck/<%= @thedeck %>/<%= @thecard %>/check" method="POST">
+  Answer:<br>
+  <input type="text" name="answer">
+  <input type="submit" value="submit">
+
+  <%= @correct %>
+  </form>
+</div>

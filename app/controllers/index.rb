@@ -30,7 +30,12 @@ get '/play/deck/:number/:card' do
 end
 
 post '/play/deck/:number/:card/check' do
-  if params[:answer] ==
+  @thedeck1 = params[:number]
+  @thecard1 = params[:card]
+
+  x = Card.where(deck_id:@thedeck1.to_s).find(@thecard1)
+
+  if params[:answer] == x.answer
     @correct = "Correct!"
   else
     @correct = "Wrong answer, try again"

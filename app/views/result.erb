@@ -6,9 +6,9 @@
 
   <table style="width:100%">
     <tr>
-      <th>id</th>
-      <th>deck id</th>
-      <th>user id</th>
+      <th>Round no.</th>
+      <th>Correct</th>
+      <th>Wrong</th>
     </tr>
     <% Round.where(user_id: session[:loginid].to_s).each do |x| %>
     <tr>

@@ -10,11 +10,11 @@
       <th>Correct</th>
       <th>Wrong</th>
     </tr>
-    <% Round.where(user_id: session[:loginid].to_s).each do |x| %>
+    <% @rounds.each do |x| %>
     <tr>
       <td><%= x.id %></td>
-      <td><%= x.deck_id %></td>
-      <td><%= x.user_id %></td>
+      <td><%= Guess.where(round_id: x.id).where(correct: "Yes").count %></td>
+      <td><%= Guess.where(round_id: x.id).where(correct: "No").count %></td>
     </tr>
     <% end %>
   </table>

@@ -1,8 +1,6 @@
 post '/login' do
   if User.authentication(params[:username],params[:password])
-    User.where(username:params[:username]).each do |x|
-      session[:loginid] = x.id
-    end
+    session[:loginid] = User.where(username:params[:username]).first.id
     session[:logindata] = "yes"
     redirect to ('/')
   else

@@ -8,3 +8,4 @@ sleep	tidur
 hatred	benci
 hay	rumput kering
 health	kesihatan
+

@@ -16,7 +16,8 @@ end
 
 get '/play/deck/:number' do
   @thedeck = params[:number]
-
+  Round.create(deck_id: params[:number].to_s, user_id: session[:loginid].to_s)
+  session[:roundid] = Round.last.id
   erb :deck
 end
 
@@ -24,10 +25,6 @@ get '/play/deck/:number/:card' do
   @thedeck = params[:number]
   @thecard = params[:card]
   @thenextcard = @thecard.to_i+1
-
-  Round.create(deck_id: params[:number].to_s, user_id: session[:loginid].to_s)
-  session[:roundid] = Round.last.id
-
 
   erb :deckplay
 end
@@ -47,6 +44,9 @@ post '/play/deck/:number/:card/check' do
 end
 
 get '/result' do
+
+  @rounds =  Round.where(user_id: session[:loginid].to_s).select
+
   erb :result
 
 end
